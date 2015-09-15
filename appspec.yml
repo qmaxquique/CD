@@ -2,11 +2,11 @@
 version: 0.0
 files:
   - source: TMP1
-    destination: /TMP
+    destination: /tmp
   - source: TMP2
-    destination: /TMP
+    destination: /tmp
   - source: TESTDIR1
-    destination: /TMP
+    destination: /tmp
 
 
 hooks:
