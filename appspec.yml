@@ -1,53 +1,43 @@
 
 version: 0.0
 files:
-  - source: source1
-    destination: destination1
-  - source: source2
-    destination: destination2
+  - source: TMP1
+    destination: /TMP
+  - source: TMP2
+    destination: /TMP
+  - source: TESTDIR1
+    destination: /TMP
 
 
 hooks:
   ApplicationStop:
-    - location:
-      timeout:
-      runas:
-    - location:
-      timeout:
-      runas:
+    - location: scripts/app_stop
+      timeout: 300
+      runas: root
+    - location: scripts/app_stop
+      timeout: 300
+      runas: root
 # During the BeforeInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
   BeforeInstall:
-    - location:
-      timeout:
-      runas:
-    - location:
-      timeout:
-      runas:
+    - location: scripts/before_install
+      timeout: 10
+      runas: root
 # During the AfterInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
   AfterInstall:
-    - location:
-      timeout:
-      runas:
-    - location:
-      timeout:
-      runas:
+    - location: scripts/after_install
+      timeout: 20
+      runas: root
 # During the ApplicationInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
   ApplicationStart:
-    - location:
-      timeout:
-      runas:
-    - location:
-      timeout:
-      runas:
+    - location: scripts/app_start
+      timeout: 15
+      runas: root
 # During the ValidateService deployment lifecycle event, run the commands
 #   in the script specified in "location".
   ValidateService:
-    - location:
-      timeout:
-      runas:
-    - location:
-      timeout:
-      runas:
+    - location: scripts/validate_service
+      timeout: 20
+      runas: root
