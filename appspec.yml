@@ -1,18 +1,53 @@
-version: 0.0
-os: linux
-files:
-  - source: /index.html
-    destination: /var/www/html/
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
 
+version: 0.0
+files:
+  - source: source1
+    destination: destination1
+  - source: source2
+    destination: destination2
+
+
+hooks:
+  ApplicationStop:
+    - location:
+      timeout:
+      runas:
+    - location:
+      timeout:
+      runas:
+# During the BeforeInstall deployment lifecycle event, run the commands
+#   in the script specified in "location".
+  BeforeInstall:
+    - location:
+      timeout:
+      runas:
+    - location:
+      timeout:
+      runas:
+# During the AfterInstall deployment lifecycle event, run the commands
+#   in the script specified in "location".
+  AfterInstall:
+    - location:
+      timeout:
+      runas:
+    - location:
+      timeout:
+      runas:
+# During the ApplicationInstall deployment lifecycle event, run the commands
+#   in the script specified in "location".
+  ApplicationStart:
+    - location:
+      timeout:
+      runas:
+    - location:
+      timeout:
+      runas:
+# During the ValidateService deployment lifecycle event, run the commands
+#   in the script specified in "location".
+  ValidateService:
+    - location:
+      timeout:
+      runas:
+    - location:
+      timeout:
+      runas:
